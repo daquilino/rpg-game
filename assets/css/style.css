@@ -1,0 +1,145 @@
+/*  Douglas Aquilino       February 11, 2017    */
+/*  RCB - "Star Wars RPG" Homework #4           */
+/*                style.js                      */
+
+
+body{
+			
+	background: #0ab7eb; /*teen titans color*/
+	/*background-image: url("../images/bg5.jpg");*/
+	color: yellow;
+}
+
+header h1 {
+	font-size: 12vw;
+	font-weight:900 ;
+	color: yellow;
+   
+    text-shadow: 2px 2px 20px black;
+    display: inline-block;
+    /*position: relative;
+    top: 20px;*/
+}
+
+#logo{
+	min-width:400px;
+	display: inline-block;
+
+}
+
+
+header{
+	
+	margin-bottom:50px;
+}
+
+/* code to set panel backgrounds transparent*/
+.panel-transparent {
+        background: none;
+    }
+
+/* Needed so center-block works on columns*/
+.center-block{
+	float: none;
+}
+
+.panel-info{
+	border-radius: 25px;
+
+}
+
+.panel-info > .panel-heading{
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	color: black;
+	background: yellow;	
+}
+
+
+
+/*********************** instructions panel ******************/
+#instructions-body{
+	padding: 30px;
+	font-weight: 900;
+
+}
+
+#buttons{
+	margin-bottom: 50px;
+}
+
+/************** Wins, Score to Match, Losses panels ***********/
+
+div.panel-heading{font-weight: 900;}
+
+
+
+/*********************** gem images ******************/
+img.img-responsive{
+	max-width: 175px;
+	margin: 0 auto;
+}
+
+#character1,#character2,#character3,#character4{
+
+	padding: 0;
+	
+	
+}
+.character:hover{
+	    /*transform: translateY(-5px);*/
+	    transform: scaleX(-1);
+
+
+}
+
+.character{
+	width: 200px;
+	height: 250px;
+
+	border: 5px solid transparent;
+}
+#character1{
+
+}
+
+
+
+#attack{
+	width: 100%;
+	margin-bottom: 50px;
+
+}
+
+#choose{
+ margin-bottom: 50px;
+
+}
+
+
+
+
+
+
+
+
+
+/*
+	WIN LOSE MESSEGE TESTING
+
+#winMessege, #loseMessege{
+	font-size: 10vw;
+	font-weight: 900;
+	border:1px solid red; /*for testing
+	position: absolute;
+	bottom: 0px;
+	color:blue;
+	/*visibility: hidden;
+
+}
+
+#loseMessege{
+	bottom: 625px;
+	visibility: visible;
+	/*visibility: hidden;
+}*/

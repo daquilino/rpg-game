@@ -1,0 +1,133 @@
+<!-- Douglas Aquilino       February 11, 2017   -->
+<!-- RCB - "Star Wars RPG" Homework #4         -->
+<!--             index.html                    -->
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>Teen Titans Go! RPG</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+		<!--##########~~~~~~ Header ~~~~~~##########-->
+	<header class="text-center">
+		<img class="img-responsive" id="logo" src="assets/images/logo.png" alt="logo">
+		<h1 class="text-center">RPG!</h1>  <!--Test Header -->
+	</header>
+	
+
+	<div class="container">
+		
+		<!--##########~~~~~~ Instructions Panel ~~~~~~##########-->
+		<div class="row" >
+			
+			<div class="col-xs-10
+						col-sm-8
+						col-md-8
+						col-lg-6 center-block" id="instructions-col" >
+			
+				<div class="center-block panel panel-info text-center panel-transparent" id="instructions-panel">
+				
+					<div class="panel-heading">Instructions</div>
+						
+					<div class="panel-body" id="instructions-body">
+						<p>Instructions Here.</p>
+					
+						<p></p>
+					
+						<p></p>
+					
+						<p></p>
+					
+						<p></p>
+					</div> <!-- END #instructions-body -->
+				</div><!-- END panel #instructions-panel  -->
+			</div> <!-- END #instructions-col  -->
+		</div><!-- END row -->
+
+		<div class="row" id="buttons">
+			<div class="col-xs-12">
+				<section class="text-center">
+					<button class="btn btn-info" id="show">Show Instructions</button>
+					<button class="btn btn-info" id="hide">Hide Instructions</button>
+				</section>
+			</div>
+		
+		</div>
+
+		
+		
+
+		<!--########~~~~~~ Characters to choose from ~~~~~~########-->
+		<h1 id="yourCharacter">Choose a Character</h1><!-- change to your character-->
+		<div class="row text-center" id="choose">
+			
+			<div class="col-xs-4 col-xs-offset-2
+						col-sm-3 col-sm-offset-0 
+						col-md-3 col-md-offset-0 
+						character" id="character1" >
+				<img class="img-responsive" src="assets/images/1.png" alt="character1">
+			</div>
+
+			<div class="col-xs-4 
+						col-sm-3
+						col-md-3 
+						character"  id="character2">
+				<img class="img-responsive" src="assets/images/3.png" alt="character2">
+			</div> 
+
+			<div class="col-xs-4 col-xs-offset-2 
+						col-sm-3 col-sm-offset-0 
+						col-md-3 
+						character" id="character3">
+				<img class="img-responsive" src="assets/images/2.png" alt="character3">
+			</div> 
+
+			<div class="col-xs-4 
+						col-sm-3
+						col-md-3 character" id="character4">
+				<img class="img-responsive" src="assets/images/4.png" alt="character4">
+			</div>  
+		
+
+		</div><!--END div -->
+		
+
+		<!--########~~~~~~ Enemies to Attack ~~~~~~########-->
+
+		<h1>Choose an Enemy Below</h1>
+		
+
+	
+			
+			
+		
+		<!--########~~~~~~ Fight Arena ~~~~~~########-->
+
+		<button class="btn btn-danger" id="attack">Attack</button>
+		
+
+		
+				
+ <!--##########~~~~~~ WIN LOSE MESSEGE TEST ~~~~~~##########-->
+<!--						
+		<div class="text-center" id="winMessege">YOU WIN!</div>
+		<div class="text-center" id="loseMessege">YOU LOSE!</div> -->
+
+
+</div><!-- END .container-->
+
+
+<script src="assets/javascript/game.js" type="text/javascript"></script>
+
+</body>
+</html>
