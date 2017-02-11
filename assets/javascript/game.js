@@ -5,38 +5,8 @@
 
 /*		                   NOTES
 
+	fix attack function
 	
-	
-function fight(){	(recursive Function)(Not in object)
-	
-	2.Done) choose enemy.                 	
-	3.) (attack)(in object i.e. yourPlayer.attack(enemy))
-		
-		if win:
-			check if enemies left
-				if yes 
-					fight();
-				if no
-					you win
-					reset game
-		if lose:
-			you lose
-			reset game
-}
-===================== General Note ===================
-
-	string to object refference: this[x] or window[x] 
-------------------------------------------
-
-MOVED Win ALERT and LOSE ALERT outside object
-
-------------------------------------------
-Array methods:
-	indexOf()  returns index in not in array -1;
-	map(). used to copy array
-	splice(index, 0) remove element to delete.
----------------------------------------------------
-
 ===============================================*/
 
 
@@ -395,10 +365,9 @@ function resetGame()
 				$("#arena >." + thisClass).css("display","none");
 				
 				if(enemiesLeft > 0)
-				{
-					
+				{			
 					$("#attack-panel").append("<br>Please Choose Another Enemy!!!") ;
-					
+					$("#attack-button").css("display", "none");
 					return 0 ;		
 				}// END if
 				else

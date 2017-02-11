@@ -18,35 +18,36 @@ header h1 {
 	font-size: 10vw;
 	font-weight:900 ;
 	color: yellow;
-   
     text-shadow: 2px 2px 20px black;
     display: inline-block;
     position: relative;
     top: 25px;
 }
 
+#characters-h1,
+#enemies-h1,
+#arena-h1 {
+	font-weight: 900;
+}
+
 #logo{
 	max-width:375px;
 	display: inline-block;
-
 }
 
-header{
-	
+header{	
 	margin-bottom:50px;
 }
 
 /* code to set panel backgrounds transparent*/
 .panel-transparent {
         background: none;
-    }
+}
 
 /* Needed so center-block works on columns*/
 .center-block{
 	float: none;
 }
-
-
 
 
 /*********************** instructions panel ******************/
