@@ -3,19 +3,12 @@
 /*                game.js                      */
 
 
-/*		                   NOTES
-
-	fix attack function
-	
-===============================================*/
-
-
 // Global Variable Declarations
 	var yourCharacter = 0;
 	var yourEnemy = 0;
 	var enemiesLeft = 3;
-	var thisClass = "";
-	var chooseCharacterFlag= false;
+	var thisClass = "";  //used to store class of clicked character
+	var gotYourCharacter= false;
 
 
 	// character object constructor 
@@ -29,7 +22,7 @@
 		const COUNTERATTACK = counterAttack; 
 
 		//public
-		this.currentAttack = attack;
+		this.currentAttack = ATTACK;
 		this.currentHealth = HEALTH;
 			
 		// =========== character methods =======================
@@ -57,21 +50,7 @@
 			
 		};//END restGame
 
-		//MOVED OUTSIDE OBJECT - REMOVE
-		// You attacks enemy: enemy's health dec. by current attack 
-		// Enemy attacks you: your health dec. by enemy's counter attack
-		// Your current attack increments.
-		this.attack = function(enemy)
-		{
-
-			this.decEnemyHealth(enemy);
-			
-			//check if enemies dies here
-			this.decYourHealth(enemy);
-			//check if you die here
-			this.incAttack();
-		};
-		
+	
 		//DONE!
 		//Increments Current Attack Power
 		this.incAttack  = function() 
@@ -94,7 +73,7 @@
 		{		
 			enemy.currentHealth -=  this.currentAttack;
 			
-		};//END decEnemyHealth
+		};//END decEnemyHealth()
 		
 		
 		//DONE!
@@ -106,33 +85,16 @@
 				return true;
 			}
 				return false;
-		};//END compare
-
-			
-		//Moved out of object. Dont need anymore
-		this.battle = function(enemy)  
-		{
-			this.attack(enemy);
-			this.incAttack();
-			//more 
-			
-			//
-			if(this.isDead())
-			{
-				return true;
-			}
-				return false;
-		};
-
+		};//END isDead()
+	
 	};//END character constructor
-
 	
 	// Create our four characters objects
 	//character(health, attack, counterAttack )
-	var beastBoy = new character(100,20,25);
-	var starfire = new character(200,10,10);
-	var robin = new character(150,30,15);
-	var raven = new character(120,25,20);
+	var beastBoy = new character(100,10,25);
+	var starfire = new character(200,5,10);
+	var robin = new character(150,7,15);
+	var raven = new character(120,8,20);
 	
 	
 	// Constant Array containing our four character objects for looping
@@ -160,12 +122,12 @@ $(document).ready(function()
 		thisClass = $(this).attr('class').split(' ').pop();
 
 		// If your character is not yet chosen.
-		if(!chooseCharacterFlag)
+		if(!gotYourCharacter)
 		{
 			//Assigns yourCharacter object associated with character class
 		 	yourCharacter = $("." + thisClass).data("objectName");
 		 	
-		 	chooseCharacter(this);
+		 	chooseCharacter(thisClass);
 		 	hideYourCharacter(thisClass);
 		 	$("#enemies").css("display","inherit");
 		 	return;
@@ -206,8 +168,6 @@ $(document).ready(function()
 		resetGame();
 	});
 
-	
-
 	// When "Show Instructions" button clicked. Instructions display.
 	$("#show").on("click",function()
 	{
@@ -231,103 +191,98 @@ $(document).ready(function()
 // Game Functions
 
 //Resets all object, variable, element to original state.
-function resetGame()
-{
-	//Resets each character objects stats.
-	characters.forEach(function(element)
+	function resetGame()
 	{
-		window[element].resetStats();
-	});
-
-	//Displays reset health stats.
-	displayHealth();
-
-	yourCharacter = 0;
-	yourEnemy = 0;
-	enemiesLeft = 3;
-	var thisClass = "";
-	chooseCharacterFlag= false;
-
-	//resets title
-	$("#characters-h1").html("Choose A Character");
-	
-	//"Hides"; setting "display: none" to the following
-
-		//Attach button
-		$("#attack-button").css("display", "none");
-
-		//Attack Panel
-		$("#attack-panel").css("display", "none");
-
-
-		//Play Again button 
-		$("#play-again-button").css("display", "none");
-	
-		//Chose an Enemy to Attack
-		$("#enemies").css("display", "none");
-		
-		//Fight Arena
-		$("#arena").css("display", "none");
-		
-		//Characters in Fight Arena
+		//Resets each character objects stats.
 		characters.forEach(function(element)
 		{
-			$("#arena >." + element).css("display", "none");
-
+			window[element].resetStats();
 		});
 
+		//Displays reset health stats.
+		displayHealth();
 
-	//"Shows"; setting "display: inherit" to the following.
+		yourCharacter = 0;
+		yourEnemy = 0;
+		enemiesLeft = 3;
+		var thisClass = "";
+		gotYourCharacter= false;
+
+		//resets title
+		$("#characters-h1").html("Choose A Character");
 		
-		//Characters in Choose a Character
-		characters.forEach(function(element)
-		{
-			$("#characters >." + element).css("display", "inherit");
-
-		});
 		
-		//Characters in Choose an Enemy
-		characters.forEach(function(element)
-		{
-			$("#enemies >." + element).css("display", "inherit");
+		//"Hides"; setting "display: none" to the following
 
-		});
+			//Attach button
+			$("#attack-button").css("display", "none");
 
-}//END restGame()
+			//Attack Panel
+			$("#attack-panel").css("display", "none");
 
-// May not need.
-// work on this array may need to be string.
-// function spliceArray(x){
+			//Play Again button 
+			$("#play-again-button").css("display", "none");
+		
+			//Chose an Enemy to Attack
+			$("#enemies").css("display", "none");
+			
+			//Fight Arena
+			$("#arena").css("display", "none");
+			
+			//Characters in Fight Arena
+			characters.forEach(function(element)
+			{
+				$("#arena >." + element).css("display", "none");
+
+			});
+
+
+		//"Shows"; setting "display: inherit" to the following.
+			
+			//Choose a Character
+			$("#characters").css("display","inherit");
+			
+			//Characters in Choose a Character
+			characters.forEach(function(element)
+			{
+				$("#characters >." + element).css("display", "inherit");
+
+			});
+			
+			//Characters in Choose an Enemy
+			characters.forEach(function(element)
+			{
+				$("#enemies >." + element).css("display", "inherit");
+
+			});
+
+	}//END restGame()
+
 	
-// 	var index = currentCharacters.indexOf(x);
-// 	currentCharacters.splice(index, 1);
-
-// }
-
-
-	//Maybe redo this.
-	// Hides characters you didn't choose from characters.
-	// Changes character heading.
-	// Sets chooseCharacterFlat to true.
 	function chooseCharacter(characterThis)
-	{
-		
+	{		
 		$("#characters-h1").html("Your Character");	
+		 	
+		characters.forEach(function(element)
+		{
 
-		 	for (var i = 1;i<5;i++)
-		 	{
-		 		if(($(characterThis).attr("id")) != i)
-		 		{
-		 			var id = "#" + i;
-		 			$(id).css("display", "none");
-		 		}
-		 	}
+			if(element != characterThis )
+			{
+
+				$("#characters >."+ element).css("display", "none");
+			}
+
+		});
 		 
-		chooseCharacterFlag = true;
+		gotYourCharacter = true;
+	
 	}//END chooseCharacter
 
 	// Removes your Character from enemies
-	function hideYourCharacter(charClass){
+	
+
+	function hideYourCharacter(charClass)
+	{
 
 		$("#enemies >." + charClass ).css("display","none");
 		$("#arena >." + charClass).css("display","none");
@@ -335,10 +290,9 @@ function resetGame()
 
 	function displayHealth()
 	{		
-		characters.forEach(function(element){
-			
-			$("." + element + "-health").html(window[element].currentHealth);
-			
+		characters.forEach(function(element)
+		{		
+			$("." + element + "-health").html(window[element].currentHealth);		
 		});
 
 	}// END displayHealth()
@@ -399,6 +353,7 @@ function resetGame()
 				$("#arena").css("display","none");
 				$("#enemies").css("display","none");
 				$("#attack-button").css("display", "none");
+				$("#characters").css("display","none");
 				$("#play-again-button").css("display", "inherit");
 				return 0;
 			}//END if

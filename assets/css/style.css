@@ -28,6 +28,7 @@ header h1 {
 #enemies-h1,
 #arena-h1 {
 	font-weight: 900;
+	margin-bottom: 40px;
 }
 
 #logo{
@@ -140,7 +141,14 @@ h3
 	background: black;
 }
 
+
+/*********************** Choose Enemy ******************/
 #enemies {display: none;}
+
+
+
+/*********************** Fight Arena ******************/
+
 
 #arena {display: none;}
 
