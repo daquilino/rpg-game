@@ -67,54 +67,182 @@
 		
 		
 
-		<!--########~~~~~~ Characters to choose from ~~~~~~########-->
-		<h1 id="yourCharacter">Choose a Character</h1><!-- change to your character-->
-		<div class="row text-center" id="choose">
+		<!--########~~~~~~ Characters to choose ~~~~~~########-->
+		
+		<div class="row text-center" id="characters">
+			<h1 id="characters-h1">Choose a Character</h1>
 			
 			<div class="col-xs-4 col-xs-offset-2
 						col-sm-3 col-sm-offset-0 
 						col-md-3 col-md-offset-0 
-						character" id="character1" >
-				<img class="img-responsive" src="assets/images/1.png" alt="character1">
+						character thumbnail beastBoy" id="1" >
+				
+				<h3>Beast Boy</h3>
+				
+				<img src="assets/images/1.png" alt="character1">
+				
+				<h3 class="beastBoy-health">123</h3>
 			</div>
 
 			<div class="col-xs-4 
 						col-sm-3
 						col-md-3 
-						character"  id="character2">
-				<img class="img-responsive" src="assets/images/3.png" alt="character2">
+						character thumbnail starfire"  id="2">
+				
+				<h3>Starfire</h3>		
+				
+				<img src="assets/images/3.png" alt="character2">
+				
+				<h3 class="starfire-health">123</h3>
 			</div> 
 
 			<div class="col-xs-4 col-xs-offset-2 
 						col-sm-3 col-sm-offset-0 
 						col-md-3 
-						character" id="character3">
-				<img class="img-responsive" src="assets/images/2.png" alt="character3">
+						character thumbnail robin" id="3">
+				
+				<h3>Robin</h3>
+				
+				<img src="assets/images/2.png" alt="character3">
+				
+				<h3 class="robin-health">123</h3>
 			</div> 
 
 			<div class="col-xs-4 
 						col-sm-3
-						col-md-3 character" id="character4">
-				<img class="img-responsive" src="assets/images/4.png" alt="character4">
+						col-md-3 character thumbnail raven" id="4">
+				
+				<h3>Raven</h3>		
+				
+				<img  src="assets/images/4.png" alt="character4">
+				
+				<h3 class="raven-health">123</h3>
 			</div>  
 		
 
-		</div><!--END div -->
+		</div><!--END div #choose -->
 		
 
 		<!--########~~~~~~ Enemies to Attack ~~~~~~########-->
+		
+		<div class="row text-center" id="enemies">
+			
+			<h1 id="enemies-h1">Choose an Enemy to Attack</h1>
+			
+			<div class="col-xs-4 col-xs-offset-2
+						col-sm-3 col-sm-offset-0 
+						col-md-3 col-md-offset-0 
+						character thumbnail enemy beastBoy" id="1enemy" >
+				
+				<h3>Beast Boy</h3>
+				
+				<img src="assets/images/1.png" alt="character1">
+				
+				<h3 class="beastBoy-health">123</h3>
+			</div>
 
-		<h1>Choose an Enemy Below</h1>
+			<div class="col-xs-4 
+						col-sm-3
+						col-md-3 
+						character thumbnail enemy starfire"  id="2enemy">
+				
+				<h3>Starfire</h3>		
+				
+				<img  src="assets/images/3.png" alt="character2">
+				
+				<h3 class="starfire-health">123</h3>
+			</div> 
+
+			<div class="col-xs-4 col-xs-offset-2 
+						col-sm-3 col-sm-offset-0 
+						col-md-3 
+						character thumbnail enemy robin" id="3enemy">
+				
+				<h3>Robin</h3>
+				
+				<img  src="assets/images/2.png" alt="character3">
+				
+				<h3 class="robin-health">123</h3>
+			</div> 
+
+			<div class="col-xs-4 
+						col-sm-3
+						col-md-3 character thumbnail enemy raven" id="4enemy">
+				
+				<h3>Raven</h3>		
+				
+				<img src="assets/images/4.png" alt="character4">
+				
+				<h3 class="raven-health">123</h3>
+			</div>  
 		
 
+		</div><!--END div #attack -->
+		
+		
 	
-			
-			
 		
 		<!--########~~~~~~ Fight Arena ~~~~~~########-->
 
-		<button class="btn btn-danger" id="attack">Attack</button>
+		<div class="row text-center" id="arena">
+			
+			<h1 id="arena-h1">Fight Arena</h1>
+			
+			<div class="col-xs-4 col-xs-offset-2
+						col-sm-3 col-sm-offset-0 
+						col-md-3 col-md-offset-0 
+						character thumbnail beastBoy" id="character1" >
+				
+				<h3>Beast Boy</h3>
+				
+				<img  src="assets/images/1.png" alt="character1">
+				
+				<h3 class="beastBoy-health">123</h3>
+			</div>
+
+			<div class="col-xs-4 
+						col-sm-3
+						col-md-3 
+						character thumbnail starfire"  id="character2">
+				
+				<h3>Starfire</h3>		
+				
+				<img  src="assets/images/3.png" alt="character2">
+				
+				<h3 class="starfire-health">123</h3>
+			</div> 
+
+			<div class="col-xs-4 col-xs-offset-2 
+						col-sm-3 col-sm-offset-0 
+						col-md-3 
+						character thumbnail robin" id="character3">
+				
+				<h3>Robin</h3>
+				
+				<img  src="assets/images/2.png" alt="character3">
+				
+				<h3 class="robin-health">123</h3>
+			</div> 
+
+			<div class="col-xs-4 
+						col-sm-3
+						col-md-3 character thumbnail raven" id="character4">
+				
+				<h3>Raven</h3>		
+				
+				<img  src="assets/images/4.png" alt="character4">
+				
+				<h3 class="raven-health">123</h3>
+			</div>  
 		
+
+		</div><!--END div #attack -->
+
+		<div class="panel panel-info" id="attack-panel"></div>
+
+		<button class="btn btn-danger" id="attack-button">Attack</button>
+		
+		<button class="btn btn-danger" id="play-again-button">Play Again</button>
 
 		
 				

@@ -2,31 +2,34 @@
 /*  RCB - "Star Wars RPG" Homework #4           */
 /*                style.js                      */
 
+/*				NEEDS DOING
+		1.) fix beast boys image bottom space in paint.net
+		2.) bottom margin of rows where characters are.
 
+
+*/
 body{
 			
 	background: #0ab7eb; /*teen titans color*/
-	/*background-image: url("../images/bg5.jpg");*/
 	color: yellow;
 }
 
 header h1 {
-	font-size: 12vw;
+	font-size: 10vw;
 	font-weight:900 ;
 	color: yellow;
    
     text-shadow: 2px 2px 20px black;
     display: inline-block;
-    /*position: relative;
-    top: 20px;*/
+    position: relative;
+    top: 25px;
 }
 
 #logo{
-	min-width:400px;
+	max-width:375px;
 	display: inline-block;
 
 }
-
 
 header{
 	
@@ -43,12 +46,16 @@ header{
 	float: none;
 }
 
-.panel-info{
-	border-radius: 25px;
 
-}
 
-.panel-info > .panel-heading{
+
+/*********************** instructions panel ******************/
+.panel-info{border-radius: 25px;}
+
+div.panel-heading{font-weight: 900;}
+
+.panel-info > .panel-heading
+{
 	border-top-left-radius: 25px;
 	border-top-right-radius: 25px;
 	color: black;
@@ -56,8 +63,6 @@ header{
 }
 
 
-
-/*********************** instructions panel ******************/
 #instructions-body{
 	padding: 30px;
 	font-weight: 900;
@@ -68,60 +73,83 @@ header{
 	margin-bottom: 50px;
 }
 
-/************** Wins, Score to Match, Losses panels ***********/
-
-div.panel-heading{font-weight: 900;}
-
-
-
-/*********************** gem images ******************/
-img.img-responsive{
-	max-width: 175px;
+/*********************** characters ******************/
+.thumbnail img{
+	width: 175px;
+	height: 253px;
 	margin: 0 auto;
 }
 
+.thumbnail img:hover
+{	
+	transform: scaleX(-1);
+	transform: translateY(-5px);
+}
+
+
+/* change these to classes .beast-boy etc..*/
 #character1,#character2,#character3,#character4{
 
 	padding: 0;
 	
-	
-}
-.character:hover{
-	    /*transform: translateY(-5px);*/
-	    transform: scaleX(-1);
-
-
 }
 
 .character{
 	width: 200px;
 	height: 250px;
-
-	border: 5px solid transparent;
-}
-#character1{
-
+	margin-right: 5px;
 }
 
+.thumbnail
+{
+	min-height: 350px;
+	background: transparent;
+	border: none;
+}
+
+h3
+{
+	margin-top: 0;
+	font-weight: 900 ;
+}
 
 
-#attack{
-	width: 100%;
+/*********************** characters ******************/
+#enemies .thumbnail{
+	background: red;
+}
+
+#arena .thumbnail{
+	background: black;
+}
+
+#enemies {display: none;}
+
+#arena {display: none;}
+
+#arena .beastBoy,
+#arena .starfire,
+#arena .robin,
+#arena .raven {display:none;}
+
+
+/************ Attack & Play Again buttons. Attack panel  ************/
+
+#attack-button, #play-again-button 
+{
 	margin-bottom: 50px;
-
+	display: none;
 }
 
-#choose{
- margin-bottom: 50px;
+#attack-panel{
 
+	display: none;
+	height: 60px;
+	color:yellow;
+	background: black;
+	padding: 10px 20px;
+	width: 300px;
 }
-
-
-
-
-
-
-
 
 
 /*
