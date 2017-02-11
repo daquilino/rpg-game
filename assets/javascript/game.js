@@ -27,21 +27,24 @@
 			
 		// =========== character methods =======================
 
-		//DONE!
+		//=======================================
+		
 		// Returns characters COUNTERATTACK
 		this.getCounterAttack = function()
 		{
 			return COUNTERATTACK;
 		};//END getCounterAttack
 
-		//DONE!
+		//=======================================
+		
 		// Returns characters ATTACK
 		this.getAttack = function()
 		{
 			return ATTACK;
 		};//END getCounterAttack
 
-		//DONE!
+		//=======================================
+
 		//Resets characters stats
 		this.resetStats = function()
 		{
@@ -50,16 +53,17 @@
 			
 		};//END restGame
 
-	
-		//DONE!
+		//=======================================
+
 		//Increments Current Attack Power
 		this.incAttack  = function() 
 		{
 			this.currentAttack += ATTACK;
 
 		};//END incAttack
+
+		//=======================================
 		
-		//DONE!
 		//Decrements your health by enemy's counter attack value.
 		this.decYourHealth = function(enemy)
 		{		
@@ -67,16 +71,17 @@
 			
 		};//END decYourHealth
 
-		//DONE!
+		//=======================================
+
 		//Decrements enemy's health by your current attack value.
 		this.decEnemyHealth = function(enemy)
 		{		
 			enemy.currentHealth -=  this.currentAttack;
 			
 		};//END decEnemyHealth()
-		
-		
-		//DONE!
+
+		//=======================================
+				
 		// Check if your dead
 		this.isDead = function()
 		{
@@ -89,7 +94,8 @@
 	
 	};//END character constructor
 	
-	// Create our four characters objects
+	
+	//Creates our four characters objects
 	//character(health, attack, counterAttack )
 	var beastBoy = new character(100,10,25);
 	var starfire = new character(200,5,10);
@@ -100,9 +106,8 @@
 	// Constant Array containing our four character objects for looping
 	const characters = ["beastBoy","starfire","robin","raven"];
 
-//===================================================================
-//===================================================================
-//===================================================================	
+
+//================== document.ready ==============================	
 
 $(document).ready(function()
 { 
@@ -155,14 +160,14 @@ $(document).ready(function()
 		$("#attack-panel").html("PRESS ATTACK!!!") ;
 		$("#attack-panel").css("display", "inherit");
 
-
-
 	});//END .on("click")
 
+	//"Attack" button on("click") 
 	$("#attack-button").on("click", function(){
 		attack();
 	});
 
+	//"Play Again" button on("click")
 	$("#play-again-button").on("click", function()
 	{
 		resetGame();
@@ -182,15 +187,12 @@ $(document).ready(function()
 
 });//END $(document).ready
 
+
+//================ Global Functions ============================	
+
+	//==============================================================
 	
-//===================================================================
-//===================================================================
-//===================================================================	
-
-
-// Game Functions
-
-//Resets all object, variable, element to original state.
+	//Resets all object, variable, element to original state.
 	function resetGame()
 	{
 		//Resets each character objects stats.
@@ -258,29 +260,31 @@ $(document).ready(function()
 
 	}//END restGame()
 
-	
-	function chooseCharacter(characterThis)
+	//==============================================================
+
+	//Passed a string of character's class.
+	//Changes heading to "Your Character".
+	//Only displays your character on top.
+	//sets gotYourCharacter flag to true.
+	function chooseCharacter(characterClass)
 	{		
 		$("#characters-h1").html("Your Character");	
 		 	
 		characters.forEach(function(element)
 		{
-
-			if(element != characterThis )
+			if(element != characterClass )
 			{
-
 				$("#characters >."+ element).css("display", "none");
 			}
-
 		});
 		 
 		gotYourCharacter = true;
 	
 	}//END chooseCharacter
 
-	// Removes your Character from enemies
+	//==============================================================
 	
-
+	// Removes your Character from enemies
 	function hideYourCharacter(charClass)
 	{
 
@@ -297,8 +301,10 @@ $(document).ready(function()
 
 	}// END displayHealth()
 
+	//==============================================================
 	
-	//Attack function
+	//You attack enemy. Decrease health. Check if killed.
+	//Enemy attacks you. Decrease health. check if killed.
 	function attack()
 	{
 		//You attack enemy.  
@@ -315,12 +321,12 @@ $(document).ready(function()
 			{
 				enemiesLeft--;
 							
-				$("#attack-panel").append("<br>You Have Defeated "+ thisClass.toUpperCase() + " !!!") ;
+				$("#attack-panel").append("<br>YOU HAVE DEFEATED "+ thisClass.toUpperCase() + " !") ;
 				$("#arena >." + thisClass).css("display","none");
 				
 				if(enemiesLeft > 0)
 				{			
-					$("#attack-panel").append("<br>Please Choose Another Enemy!!!") ;
+					$("#attack-panel").append("<br>PLEASE CHOOSE ANOTHER ENEMY!") ;
 					$("#attack-button").css("display", "none");
 					return 0 ;		
 				}// END if

@@ -2,19 +2,22 @@
 /*  RCB - "Star Wars RPG" Homework #4           */
 /*                style.js                      */
 
-/*				NEEDS DOING
-		1.) fix beast boys image bottom space in paint.net
-		2.) bottom margin of rows where characters are.
-
-
-*/
-body{
-			
+/****************** General Styling ************/
+body
+{			
 	background: #0ab7eb; /*teen titans color*/
 	color: yellow;
 }
 
-header h1 {
+/* code to set panel backgrounds transparent*/
+.panel-transparent {background: none;}
+
+/* Needed so center-block works on columns*/
+.center-block{float: none;}
+
+/****************** Header Styling ************/
+header h1 
+{
 	font-size: 10vw;
 	font-weight:900 ;
 	color: yellow;
@@ -24,31 +27,13 @@ header h1 {
     top: 25px;
 }
 
-#characters-h1,
-#enemies-h1,
-#arena-h1 {
-	font-weight: 900;
-	margin-bottom: 40px;
-}
-
-#logo{
+#logo
+{
 	max-width:375px;
 	display: inline-block;
 }
 
-header{	
-	margin-bottom:50px;
-}
-
-/* code to set panel backgrounds transparent*/
-.panel-transparent {
-        background: none;
-}
-
-/* Needed so center-block works on columns*/
-.center-block{
-	float: none;
-}
+header{	margin-bottom:50px;}
 
 
 /*********************** instructions panel ******************/
@@ -106,13 +91,13 @@ header{
 
 
 /* change these to classes .beast-boy etc..*/
-#character1,#character2,#character3,#character4{
-
-	padding: 0;
-	
+#character1,#character2,#character3,#character4
+{
+	padding: 0;	
 }
 
-.character{
+.character
+{
 	width: 200px;
 	height: 250px;
 	margin-right: 5px;
@@ -133,12 +118,22 @@ h3
 
 
 /*********************** characters ******************/
-#enemies .thumbnail{
+#enemies .thumbnail
+{
 	background: red;
 }
 
-#arena .thumbnail{
+#arena .thumbnail
+{
 	background: black;
+}
+
+#characters-h1,
+#enemies-h1,
+#arena-h1 
+{
+	font-weight: 900;
+	margin-bottom: 40px;
 }
 
 
@@ -166,7 +161,8 @@ h3
 	display: none;
 }
 
-#attack-panel{
+#attack-panel
+{
 
 	display: none;
 	height: 100px;
