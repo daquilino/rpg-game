@@ -381,35 +381,49 @@ function resetGame()
 		yourCharacter.decEnemyHealth(yourEnemy);
 		{
 			displayHealth(); 
-						
-			$("#attack-panel").html("YOU ATTACKED " + thisClass.toUpperCase() +" FOR " + yourCharacter.currentAttack + " DAMAGE!");
+		
+			$("#attack-panel").html("YOU ATTACK " + thisClass.toUpperCase() +"!!!");
 			
-			yourCharacter.incAttack();		
 			
-			// Checks if enemy was killed.			
+			setTimeout(function() 
+			{							
+				
+				$("#attack-panel").append("<br>" + thisClass.toUpperCase() + "'S Health Decreases By " + yourCharacter.currentAttack + "!");
+
+			}, 1000);
+
+
+			// Checks if enemy was killed.
+			// If so decrements enemiesLeft. 
 			if(yourEnemy.isDead())
 			{
 				enemiesLeft--;
-							
-				$("#attack-panel").append("<br>You Have Defeated "+ thisClass.toUpperCase() + " !!!") ;
-				$("#arena >." + thisClass).css("display","none");
+				
+				setTimeout(function() 
+				{
+					$("#attack-panel").html("You Have Defeated "+ thisClass.toUpperCase() + " !!!") ;
+					$("#arena >." + thisClass).css("display","none");
+
+				}, 1000);
 				
 				if(enemiesLeft > 0)
 				{
-					
+					setTimeout(function() 
+					{
 					$("#attack-panel").append("<br>Please Choose Another Enemy!!!") ;
 					
-					return 0 ;		
+					}, 2000);
 				}// END if
 				else
-				{			
-					$("#attack-panel").html("YOU WON!  ALL ENEMIES HAVE BEEN DEFEATED!");
-					$("#arena").css("display","none");
-					$("#enemies").css("display","none");
-					$("#attack-button").css("display", "none");
-					$("#play-again-button").css("display", "inherit");
-					
-					return 0;
+				{
+					setTimeout(function() 
+					{
+						$("#attack-panel").html("YOU WON!!!  All Enemies Have Been Defeated!");
+						$("#arena").css("display","none");
+						$("#enemies").css("display","none");
+						$("#attack-button").css("display", "none");
+						$("#play-again-button").css("display", "inherit");
+					}, 2000);
 				}//END else
 			
 			}//END if(yourEnemy.isDead())
@@ -420,20 +434,44 @@ function resetGame()
 		//Enemy Attacks You.
 		yourCharacter.decYourHealth(yourEnemy);
 		{
+
 			displayHealth();
 			
-			$("#attack-panel").append("<br>" + thisClass.toUpperCase() + " ATTACKS YOU FOR " + yourEnemy.getCounterAttack() + " DAMAGE!");	
+			$("#attack-panel").html(thisClass.toUpperCase() + " ATTACKS YOU !!!");
+
+			setTimeout(function() 
+			{
+				$("#attack-panel").html("Your Health Decreases By " + yourEnemy.getCounterAttack() + " !");
+					
+			}, 2000);
 			
 			if(yourCharacter.isDead())
-			{			
-				$("#attack-panel").html("YOU HAVE BEEN DEFEATED!!!");
-				$("#arena").css("display","none");
-				$("#enemies").css("display","none");
-				$("#attack-button").css("display", "none");
-				$("#play-again-button").css("display", "inherit");
-				return 0;
-			}//END if
-		
+			{
+				setTimeout(function() 
+					{
+						$("#attack-panel").html("YOU HAVE BEEN DEFEATED!!!");
+						$("#arena").css("display","none");
+						$("#enemies").css("display","none");
+						$("#attack-button").css("display", "none");
+						$("#play-again-button").css("display", "inherit");
+					}, 2000);
+
+			}
+			else
+			{
+				yourCharacter.incAttack();
+
+				setTimeout(function() 
+				{							
+					$("#attack-panel").html("Your Attack Power Inceases By " + yourCharacter.getAttack() + " To " + yourCharacter.currentAttack + "!");
+
+				}, 2000);
+			}
+
 		}//END Enemy Attacks You
 		
+			
+
+	
+
 	}//END attack();

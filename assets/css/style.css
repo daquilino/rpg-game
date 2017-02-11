@@ -52,21 +52,37 @@ header{
 /*********************** instructions panel ******************/
 .panel-info{border-radius: 25px;}
 
-div.panel-heading{font-weight: 900;}
 
 .panel-info > .panel-heading
 {
 	border-top-left-radius: 25px;
 	border-top-right-radius: 25px;
 	color: black;
-	background: yellow;	
+	background: yellow;
+	font-weight: 900;	
+	font-size: 1.5em;
 }
 
+.btn-info
+{
+	background: black;
+	color: yellow;
+	font-weight: 900;
+
+}
+
+.btn-info:focus
+{
+	background: yellow;
+	color: black;
+	font-weight: 900;
+
+}
 
 #instructions-body{
 	padding: 30px;
 	font-weight: 900;
-
+	font-size : 1.2em;
 }
 
 #buttons{
@@ -144,30 +160,10 @@ h3
 #attack-panel{
 
 	display: none;
-	height: 60px;
+	height: 100px;
 	color:yellow;
 	background: black;
 	padding: 10px 20px;
-	width: 300px;
+	width: 400px;
 }
 
-
-/*
-	WIN LOSE MESSEGE TESTING
-
-#winMessege, #loseMessege{
-	font-size: 10vw;
-	font-weight: 900;
-	border:1px solid red; /*for testing
-	position: absolute;
-	bottom: 0px;
-	color:blue;
-	/*visibility: hidden;
-
-}
-
-#loseMessege{
-	bottom: 625px;
-	visibility: visible;
-	/*visibility: hidden;
-}*/
